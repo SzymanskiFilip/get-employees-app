@@ -3,9 +3,11 @@ package eu.filip.getemployeesapp.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "employees")
 public class Employee {
     private @Id Long id;
     private String first_name;
