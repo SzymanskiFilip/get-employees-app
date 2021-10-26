@@ -1,5 +1,6 @@
-package controllers;
+package eu.filip.getemployeesapp.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 public class TestController {
 
-    @RequestMapping("/test")
-    public String returnHello(){
-        return "Hello World!";
+    @GetMapping("/test")
+    public String test(){
+        return "Hello API!";
     }
 }
