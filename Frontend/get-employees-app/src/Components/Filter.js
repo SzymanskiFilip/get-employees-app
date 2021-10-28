@@ -4,10 +4,19 @@ const Filter = () => {
 
     let professions = ["UI Designer", "Frontend Developer", "Backend Developer"];
 
+    async function requestEmployees(){
+        const res = await fetch("/api/v1/repoTest");
+        const json = await res.json();
+        console.log(json);
+
+        //TODO: Fix localhost API connection
+    }
+
     return(
         <div>
             <form onSubmit={(e) => {
                 e.preventDefault();
+                requestEmployees();
             }}>
                 <label>
                     Profession
@@ -29,7 +38,8 @@ const Filter = () => {
                 <br/>
                 <button>Search!</button>
             </form>
-            <Employee firstName="Filip" lastName="ezzz" age={17} status={true}/>
+
+
         </div>
     )
 
