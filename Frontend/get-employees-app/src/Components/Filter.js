@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import Employee from './Employee.js';
 const Filter = () => {
 
     let professions = ["UI Designer", "Frontend Developer", "Backend Developer"];
@@ -28,6 +29,7 @@ const Filter = () => {
                 <br/>
                 <button>Search!</button>
             </form>
+            <Employee firstName="Filip" lastName="ezzz" age={17} status={true}/>
         </div>
     )
 
