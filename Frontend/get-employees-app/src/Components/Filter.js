@@ -22,10 +22,10 @@ const Filter = () => {
                 e.preventDefault();
                 requestEmployees();
             }}>
-                <label>
+                <label className="form-child">
                     Profession
                 </label>
-                <select>
+                <select className="form-child">
                     <option value="" defaultValue disabled hidden>Choose Profession</option>
                     {
                         professions.map((p) =>(
@@ -34,11 +34,11 @@ const Filter = () => {
                     }
                 </select>
 
-                <label>
+                <label className="form-child">
                     Already Hired
                 </label>
-                <input type="checkbox" value="status"/>
-                <button>Search!</button>
+                <input type="checkbox" value="status" className="form-child"/>
+                <button className="form-child">Search!</button>
             </form>
 
             {
