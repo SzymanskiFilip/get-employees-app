@@ -26,7 +26,7 @@ const Filter = () => {
                     Profession
                 </label>
                 <select>
-                    <option value="" selected disabled hidden>Choose Profession</option>
+                    <option value="" defaultValue disabled hidden>Choose Profession</option>
                     {
                         professions.map((p) =>(
                             <option>{p}</option>
