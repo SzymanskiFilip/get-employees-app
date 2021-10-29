@@ -34,12 +34,10 @@ const Filter = () => {
                     }
                 </select>
 
-                <br/>
                 <label>
                     Already Hired
                 </label>
                 <input type="checkbox" value="status"/>
-                <br/>
                 <button>Search!</button>
             </form>
 
