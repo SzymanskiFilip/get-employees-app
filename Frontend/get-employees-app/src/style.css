@@ -1,9 +1,9 @@
 *{
     margin: 0;
     padding: 0;
-    //background-color: #121212;
-    background-color: white;
-    color: black;
+    background-color: #121212;
+    color: white;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
 
 form{
@@ -12,3 +12,21 @@ form{
     justify-content: center;
     align-items: center;
 }
+
+form label{
+    font-size: 25px;
+}
+
+form select{
+    border: 1px solid white;
+    outline: none;
+}
+
+form button{
+    padding: 5px;
+}
+
+.form-child{
+    margin-bottom: 5px;
+}
+
