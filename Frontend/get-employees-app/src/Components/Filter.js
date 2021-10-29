@@ -3,13 +3,13 @@ import Employee from './Employee.js';
 const Filter = () => {
 
     let professions = ["UI Designer", "Frontend Developer", "Backend Developer"];
+    const [employees, setEmployees] = useState('');
 
     async function requestEmployees(){
         const res = await fetch("/api/v1/repoTest");
         const json = await res.json();
-        console.log(json);
-
-        //TODO: Fix localhost API connection
+        setEmployees(json);
+        console.log(employees);
     }
 
     return(
@@ -39,6 +39,11 @@ const Filter = () => {
                 <button>Search!</button>
             </form>
 
+            {
+                employees.map((e) => (
+                    <Employee firstName={e.first_name} lastName={e.last_name} age={e.age} profession={e.profession}/>
+                ))
+            }
 
         </div>
     )
