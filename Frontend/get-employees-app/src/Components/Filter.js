@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Employee from './Employee.js';
 const Filter = () => {
 
@@ -11,6 +11,10 @@ const Filter = () => {
         setEmployees(json);
         console.log(json);
     }
+
+    useEffect(() => {
+        requestEmployees();
+    }, []);
 
     return(
         <div>
@@ -41,7 +45,10 @@ const Filter = () => {
 
             {
                 employees.map((empl) => (
-                    <Employee firstName={empl.first_name} lastName={empl.last_name} age={empl.age} profession={empl.profession} status={empl.status}/>
+                    <Employee firstName={empl.first_name} lastName={empl.last_name}
+                              age={empl.age} profession={empl.profession} status={empl.status}
+                              key={empl.id}
+                    />
                 ))
             }
 
