@@ -1,15 +1,15 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import Employee from './Employee.js';
 const Filter = () => {
 
     let professions = ["UI Designer", "Frontend Developer", "Backend Developer"];
-    const [employees, setEmployees] = useState('');
+    const [employees, setEmployees] = useState([]);
 
     async function requestEmployees(){
         const res = await fetch("/api/v1/repoTest");
         const json = await res.json();
         setEmployees(json);
-        console.log(employees);
+        console.log(json);
     }
 
     return(
@@ -40,8 +40,8 @@ const Filter = () => {
             </form>
 
             {
-                employees.map((e) => (
-                    <Employee firstName={e.first_name} lastName={e.last_name} age={e.age} profession={e.profession}/>
+                employees.map((empl) => (
+                    <Employee firstName={empl.first_name} lastName={empl.last_name} age={empl.age} profession={empl.profession} status={empl.status}/>
                 ))
             }
 
