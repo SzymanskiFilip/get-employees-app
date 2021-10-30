@@ -41,14 +41,17 @@ const Filter = () => {
                 <button className="form-child">Search!</button>
             </form>
 
-            {
-                employees.map((empl) => (
-                    <Employee firstName={empl.first_name} lastName={empl.last_name}
-                              age={empl.age} profession={empl.profession} status={empl.status}
-                              key={empl.id}
-                    />
-                ))
-            }
+            <div className="employees-wrapper">
+                {
+                    employees.map((empl) => (
+                        <Employee firstName={empl.first_name} lastName={empl.last_name}
+                                  age={empl.age} profession={empl.profession} status={empl.status}
+                                  key={empl.id}
+                        />
+                    ))
+                }
+            </div>
+            //TODO: Fix css
 
         </div>
     )
