@@ -30,3 +30,10 @@ form button{
     margin-bottom: 5px;
 }
 
+.employees-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
