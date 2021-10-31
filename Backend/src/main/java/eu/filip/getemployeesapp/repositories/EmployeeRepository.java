@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-    @Query(value = "SELECT * FROM employees WHERE profession = profession", nativeQuery = true)
+    @Query(value = "SELECT * FROM employees WHERE profession = ?1", nativeQuery = true)
     List<Employee> findByProfession(String profession);
 
 }
