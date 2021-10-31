@@ -4,21 +4,24 @@ const Filter = () => {
 
     const [professions, setProfessions] = useState([]);
     const [employees, setEmployees] = useState([]);
-
+    const [chosenProfession, setChosenProfession] = useState("All");
 
 
     async function requestEmployees(){
         const res = await fetch("/api/v1/allEmployees");
         const json = await res.json();
         setEmployees(json);
-        console.log(json);
     }
 
     async function requestProfessions(){
         const res = await fetch("api/v1/professions");
         const json = await res.json();
         setProfessions(json);
-        console.log(json);
+    }
+
+    function handleSelection(e){
+        console.log(e.target.value);
+        setChosenProfession(e.target.value);
     }
 
     useEffect(()=>{
@@ -34,11 +37,12 @@ const Filter = () => {
                 <label className="form-child">
                     Profession
                 </label>
-                <select className="form-child">
-                    <option value="" defaultValue disabled>Choose Profession</option>
+                <select className="form-child" onChange={handleSelection}>
+                    <option defaultValue>All</option>
                     {
                         professions.map((p) =>(
-                            <option value={p} key={professions.indexOf(p)}>{p}</option>
+                            <option value={p} key={professions.indexOf(p)}
+                            >{p}</option>
                         ))
                     }
                 </select>
