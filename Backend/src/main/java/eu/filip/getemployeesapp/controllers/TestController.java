@@ -32,7 +32,7 @@ public class TestController {
 
     @GetMapping("/professions")
     List<String> professions(){
-        return repository.finAllProfessions();
+        return repository.findAllProfessions();
     }
 
     //TODO: Create endpoint that returns all professions for the Frontend to get

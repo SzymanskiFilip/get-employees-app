@@ -25,7 +25,7 @@ public class EmployeesController {
 
     @GetMapping("/professions")
     List<String> professions(){
-        return repository.finAllProfessions();
+        return repository.findAllProfessions();
     }
 
 

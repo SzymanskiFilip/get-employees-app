@@ -12,6 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findByProfession(String profession);
 
     @Query(value = "SELECT DISTINCT profession FROM employees", nativeQuery = true)
-    List<String> finAllProfessions();
+    List<String> findAllProfessions();
 
 }
