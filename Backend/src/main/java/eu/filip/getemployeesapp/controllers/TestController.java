@@ -25,10 +25,8 @@ public class TestController {
         return repository.findAll();
     }
 
-    @GetMapping("employee")
-    String employeesOf(@RequestParam String profession){
-        return "profession: " + profession;
-        //this is working, employee is the endpoint and the request param is /employee?profession=x
-        //TODO: Implement in the Employees controller with the custom query
+    @GetMapping("/employee")
+    List<Employee> employeesOf(@RequestParam String profession){
+        return repository.findByProfession(profession);
     }
 }
