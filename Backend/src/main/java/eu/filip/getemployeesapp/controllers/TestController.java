@@ -29,4 +29,11 @@ public class TestController {
     List<Employee> employeesOf(@RequestParam String profession){
         return repository.findByProfession(profession);
     }
+
+    @GetMapping("/professions")
+    List<String> professions(){
+        return repository.finAllProfessions();
+    }
+
+    //TODO: Create endpoint that returns all professions for the Frontend to get
 }
