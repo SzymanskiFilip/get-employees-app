@@ -35,5 +35,4 @@ public class TestController {
         return repository.findAllProfessions();
     }
 
-    //TODO: Create endpoint that returns all professions for the Frontend to get
 }
