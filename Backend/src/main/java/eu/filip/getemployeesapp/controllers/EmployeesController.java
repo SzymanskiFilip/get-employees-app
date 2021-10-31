@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/v1")
 public class EmployeesController {
     private final EmployeeRepository repository;
     public EmployeesController(EmployeeRepository repo){this.repository = repo;}
@@ -19,7 +19,7 @@ public class EmployeesController {
     }
 
     @GetMapping("/employee")
-    List<Employee> employeesOf(@PathVariable("profession") String profession){
+    List<Employee> employeesOf(@RequestParam String profession){
         return repository.findByProfession(profession);
     }
 
