@@ -2,20 +2,29 @@ import {useState, useEffect} from "react";
 import Employee from './Employee.js';
 const Filter = () => {
 
-    let professions = ["UI Designer", "Frontend Developer", "Backend Developer"];
+    const [professions, setProfessions] = useState([]);
     const [employees, setEmployees] = useState([]);
 
+
+
     async function requestEmployees(){
-        const res = await fetch("/api/v1/repoTest");
+        const res = await fetch("/api/v1/allEmployees");
         const json = await res.json();
         setEmployees(json);
         console.log(json);
     }
 
-    useEffect(() => {
-        requestEmployees();
-    }, []);
+    async function requestProfessions(){
+        const res = await fetch("api/v1/professions");
+        const json = await res.json();
+        setProfessions(json);
+        console.log(json);
+    }
 
+    useEffect(()=>{
+        requestEmployees();
+        requestProfessions();
+    }, []);
     return(
         <div>
             <form onSubmit={(e) => {
@@ -26,10 +35,10 @@ const Filter = () => {
                     Profession
                 </label>
                 <select className="form-child">
-                    <option value="" defaultValue disabled hidden>Choose Profession</option>
+                    <option value="" defaultValue disabled>Choose Profession</option>
                     {
                         professions.map((p) =>(
-                            <option>{p}</option>
+                            <option value={p} key={professions.indexOf(p)}>{p}</option>
                         ))
                     }
                 </select>
@@ -51,7 +60,6 @@ const Filter = () => {
                     ))
                 }
             </div>
-            //TODO: Fix css
 
         </div>
     )
