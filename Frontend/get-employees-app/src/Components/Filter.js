@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import Employee from './Employee.js';
+import Result from './Result.js';
 const Filter = () => {
 
     const [professions, setProfessions] = useState([]);
@@ -10,6 +10,7 @@ const Filter = () => {
     async function requestEmployees(){
         const res = await fetch("/api/v1/allEmployees");
         const json = await res.json();
+        console.log(json)
         setEmployees(json);
     }
 
@@ -19,25 +20,41 @@ const Filter = () => {
         setProfessions(json);
     }
 
+    async function requestByProfession(){
+        if(chosenProfession === 'All'){
+            requestEmployees();
+        }
+        const res = await fetch("/api/v1/employee?profession="+chosenProfession);
+        const json = await res.json();
+        console.log(json);
+        setEmployees(json);
+    }
+
+
     function handleSelection(e){
         console.log(e.target.value);
         setChosenProfession(e.target.value);
     }
 
+
+
     useEffect(()=>{
         requestEmployees();
         requestProfessions();
     }, []);
+
     return(
         <div>
             <form onSubmit={(e) => {
                 e.preventDefault();
-                requestEmployees();
+                requestByProfession();
             }}>
                 <label className="form-child">
                     Profession
                 </label>
-                <select className="form-child" onChange={handleSelection}>
+                <select className="form-child"
+                        onChange={handleSelection}
+                        onBlur={handleSelection}>
                     <option defaultValue>All</option>
                     {
                         professions.map((p) =>(
@@ -56,12 +73,7 @@ const Filter = () => {
 
             <div className="employees-wrapper">
                 {
-                    employees.map((empl) => (
-                        <Employee firstName={empl.first_name} lastName={empl.last_name}
-                                  age={empl.age} profession={empl.profession} status={empl.status}
-                                  key={empl.id}
-                        />
-                    ))
+                    <Result employees={employees}/>
                 }
             </div>
 
