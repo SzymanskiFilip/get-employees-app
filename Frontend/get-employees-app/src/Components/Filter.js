@@ -5,7 +5,7 @@ const Filter = () => {
     const [professions, setProfessions] = useState([]);
     const [employees, setEmployees] = useState([]);
     const [chosenProfession, setChosenProfession] = useState("All");
-    const [status, setStatus] = useState();
+    const [status, setStatus] = useState(true);
 
 
     async function requestEmployees(){
@@ -41,6 +41,8 @@ const Filter = () => {
         console.log(status);
         setStatus(checked);
     }
+
+    //TODO: 1. modify requestByProfession so it takes a parameter of status, 2. re-render
 
     useEffect(()=>{
         requestEmployees();
