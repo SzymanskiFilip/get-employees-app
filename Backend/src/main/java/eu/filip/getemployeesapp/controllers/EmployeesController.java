@@ -23,6 +23,14 @@ public class EmployeesController {
         return repository.findByProfession(profession);
     }
 
+    @GetMapping("/employee2")
+    List<Employee> employeesOf2p(
+            @RequestParam String profession,
+            @RequestParam boolean status
+    ){
+        return repository.findByProfessionAndStatus(profession, status);
+    }
+
     @GetMapping("/professions")
     List<String> professions(){
         return repository.findAllProfessions();
