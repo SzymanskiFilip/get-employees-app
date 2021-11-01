@@ -35,4 +35,12 @@ public class TestController {
         return repository.findAllProfessions();
     }
 
+    @GetMapping("/employee2")
+    List<Employee> employeesOf2p(
+            @RequestParam String profession,
+            @RequestParam boolean status
+    ){
+        return repository.findByProfessionAndStatus(profession, status);
+    }
+
 }
