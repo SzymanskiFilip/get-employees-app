@@ -5,6 +5,7 @@ const Filter = () => {
     const [professions, setProfessions] = useState([]);
     const [employees, setEmployees] = useState([]);
     const [chosenProfession, setChosenProfession] = useState("All");
+    const [status, setStatus] = useState();
 
 
     async function requestEmployees(){
@@ -30,13 +31,16 @@ const Filter = () => {
         setEmployees(json);
     }
 
-
     function handleSelection(e){
         console.log(e.target.value);
         setChosenProfession(e.target.value);
     }
 
-
+    function handleStatusSelect(e){
+        let checked = !e.target.checked;
+        console.log(status);
+        setStatus(checked);
+    }
 
     useEffect(()=>{
         requestEmployees();
@@ -67,7 +71,8 @@ const Filter = () => {
                 <label className="form-child">
                     Already Hired
                 </label>
-                <input type="checkbox" value="status" className="form-child"/>
+                <input type="checkbox" value="status" className="form-child"
+                    onChange={handleStatusSelect}/>
                 <button className="form-child">Search!</button>
             </form>
 
