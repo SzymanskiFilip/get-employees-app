@@ -14,4 +14,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     @Query(value = "SELECT DISTINCT profession FROM employees", nativeQuery = true)
     List<String> findAllProfessions();
 
+    @Query(value = "SELECT * FROM employees WHERE profession = ?1 AND status = ?2", nativeQuery = true)
+    List<Employee> findByProfessionAndStatus(String profession, boolean status);
+
 }
