@@ -8,23 +8,23 @@ const AddNewForm = () => {
     const [profession, setProfession] = useState("");
     const [employmentStatus, setEmploymentStatus] = useState(false);
 
-    const handleSubmit = () =>{
-        const newEmployee = {
-            first_name: name,
-            last_name: lastName,
-            age: parseInt(age),
-            profession: profession,
-            status: employmentStatus
-        }
-        fetch("api/v1/employee", {
-            
-        });
-    }
-
     return(
         <form onSubmit={(e) => {
             e.preventDefault();
-            handleSubmit();
+            const newEmployee = {
+                first_name: name,
+                last_name: lastName,
+                age: parseInt(age),
+                profession: profession,
+                status: employmentStatus
+            }
+            fetch("api/v1/employee", {
+                method: 'POST',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(newEmployee)
+            }).then(()=>{
+                console.log("new employee added");
+            })
             }
             }>
             <label>Name:</label>
@@ -40,7 +40,7 @@ const AddNewForm = () => {
             <input required type="text" name="profession"
                    onChange={(e) => setProfession(e.target.value)}/>
             <label>Employment Status:</label>
-            <input required type="checkbox" id="bigger-checkbox" name="employment_status"
+            <input type="checkbox" id="bigger-checkbox" name="employment_status"
                    onChange={(e) => setEmploymentStatus(e.target.checked)}/>
             <button type="submit">Submit</button>
         </form>
