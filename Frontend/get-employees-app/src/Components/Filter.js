@@ -7,7 +7,7 @@ const Filter = () => {
     const [employees, setEmployees] = useState([]);
     const [chosenProfession, setChosenProfession] = useState("All");
     const [status, setStatus] = useState(true);
-    const [addFormToggle, setAddFormToggle] = useState(true);
+    const [addFormToggle, setAddFormToggle] = useState(false);
 
 
     async function requestEmployees(){
