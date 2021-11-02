@@ -31,5 +31,10 @@ public class EmployeesController {
         return repository.findAllProfessions();
     }
 
+    @PostMapping("/employee")
+    Employee newEmployee(@RequestBody Employee newEmployee){
+        return repository.save(newEmployee);
+    }
+
 
 }
