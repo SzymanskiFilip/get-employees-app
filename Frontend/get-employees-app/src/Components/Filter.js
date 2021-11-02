@@ -1,11 +1,13 @@
 import {useState, useEffect} from "react";
 import Result from './Result.js';
+import AddNewForm from './AddNewForm.js';
 const Filter = () => {
 
     const [professions, setProfessions] = useState([]);
     const [employees, setEmployees] = useState([]);
     const [chosenProfession, setChosenProfession] = useState("All");
     const [status, setStatus] = useState(true);
+    const [addFormToggle, setAddFormToggle] = useState(true);
 
 
     async function requestEmployees(){
@@ -40,6 +42,15 @@ const Filter = () => {
         let checked = !e.target.checked;
         console.log(status);
         setStatus(checked);
+    }
+
+    function handleFormToggle(){
+        if(addFormToggle === false){
+            setAddFormToggle(true);
+        } else{
+            setAddFormToggle(false);
+        }
+        console.log(addFormToggle);
     }
 
     useEffect(()=>{
@@ -77,6 +88,10 @@ const Filter = () => {
                 }
 
                 <button className="form-child">Search!</button>
+                <h5 className="add-text" onClick={handleFormToggle}>Or add new Employees!</h5>
+
+                <AddNewForm />
+
             </form>
 
             <div className="employees-wrapper">
