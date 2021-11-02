@@ -22,10 +22,7 @@ const Filter = () => {
     }
 
     async function requestByProfession(){
-        if(chosenProfession === 'All'){
-            requestEmployees();
-        }
-        const res = await fetch("/api/v1/employee?profession="+chosenProfession);
+        const res = await fetch("/api/v1/employee?profession="+chosenProfession+"&status="+status);
         const json = await res.json();
         console.log(json);
         setEmployees(json);
@@ -41,8 +38,6 @@ const Filter = () => {
         console.log(status);
         setStatus(checked);
     }
-
-    //TODO: 1. modify requestByProfession so it takes a parameter of status, 2. re-render
 
     useEffect(()=>{
         requestEmployees();
@@ -71,7 +66,7 @@ const Filter = () => {
                 </select>
 
                 <label className="form-child">
-                    Already Hired
+                    Looking for a job:
                 </label>
                 <input type="checkbox" value="status" className="form-child"
                     onChange={handleStatusSelect}/>
@@ -80,6 +75,7 @@ const Filter = () => {
 
             <div className="employees-wrapper">
                 {
+                    employees.length === 0 ? <h1>No results found</h1> :
                     <Result employees={employees}/>
                 }
             </div>
