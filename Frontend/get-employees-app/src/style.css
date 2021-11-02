@@ -49,3 +49,7 @@ form button{
     color: green;
 }
 
+.add-text:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
