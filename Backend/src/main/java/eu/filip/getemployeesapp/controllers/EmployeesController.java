@@ -33,13 +33,7 @@ public class EmployeesController {
 
     @PostMapping("/employee")
     Employee newEmployee(@RequestBody Employee newEmployee){
-        return repository.saveEmployee(
-                newEmployee.getFirst_name(),
-                newEmployee.getLast_name(),
-                newEmployee.getAge(),
-                newEmployee.getProfession(),
-                newEmployee.isStatus()
-        );
+        return repository.save(newEmployee);
     }
 
 
