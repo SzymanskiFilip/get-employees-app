@@ -13,6 +13,16 @@ form{
     align-items: center;
 }
 
+form input{
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+form input:focus{
+    outline: white;
+}
+
 form label{
     font-size: 25px;
 }
@@ -49,7 +59,17 @@ form button{
     color: green;
 }
 
+.add-text{
+    text-align: center;
+}
+
 .add-text:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+
+#bigger-checkbox{
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
 }
