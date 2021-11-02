@@ -88,11 +88,14 @@ const Filter = () => {
                 }
 
                 <button className="form-child">Search!</button>
-                <h5 className="add-text" onClick={handleFormToggle}>Or add new Employees!</h5>
-
-                <AddNewForm />
 
             </form>
+
+
+            <h5 className="add-text" onClick={handleFormToggle}>Or add new Employees!</h5>
+            {
+                addFormToggle ? <AddNewForm/> : <></>
+            }
 
             <div className="employees-wrapper">
                 {
