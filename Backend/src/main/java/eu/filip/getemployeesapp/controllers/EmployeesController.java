@@ -19,11 +19,6 @@ public class EmployeesController {
     }
 
     @GetMapping("/employee")
-    List<Employee> employeesOf(@RequestParam String profession){
-        return repository.findByProfession(profession);
-    }
-
-    @GetMapping("/employee2")
     List<Employee> employeesOf2p(
             @RequestParam String profession,
             @RequestParam boolean status
