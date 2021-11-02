@@ -26,14 +26,26 @@ form button{
     padding: 5px;
 }
 
-.form-child{
-    margin-bottom: 5px;
-}
-
 .employees-wrapper{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.employee{
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.hired{
+    color:red;
+}
+
+.not-hired{
+    color: green;
 }
 
