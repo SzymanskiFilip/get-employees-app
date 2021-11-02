@@ -18,5 +18,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findByProfessionAndStatus(String profession, boolean status);
 
     @Query(value= "INSERT INTO employees (first_name, last_name, age, profession, status) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-    Employee saveEmployee(String first_name, String last_name, int age, String profession, boolean status);
+    Employee saveEmployee(String first_name, String last_name, int age, String profession, boolean status); 
 }
