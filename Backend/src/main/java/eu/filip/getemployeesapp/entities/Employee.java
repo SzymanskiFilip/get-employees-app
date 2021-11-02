@@ -1,15 +1,12 @@
 package eu.filip.getemployeesapp.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
-    private @Id Long id;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private String first_name;
     private String last_name;
     private int age;
