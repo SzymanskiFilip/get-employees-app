@@ -22,6 +22,9 @@ const Filter = () => {
     }
 
     async function requestByProfession(){
+        if(chosenProfession === "All"){
+            requestEmployees();
+        }
         const res = await fetch("/api/v1/employee?profession="+chosenProfession+"&status="+status);
         const json = await res.json();
         console.log(json);
@@ -68,8 +71,11 @@ const Filter = () => {
                 <label className="form-child">
                     Looking for a job:
                 </label>
-                <input type="checkbox" value="status" className="form-child"
-                    onChange={handleStatusSelect}/>
+                {
+                    chosenProfession !== "All" ? <input type="checkbox" value="status" className="form-child"
+                    onChange={handleStatusSelect}/> : <p></p>
+                }
+
                 <button className="form-child">Search!</button>
             </form>
 
